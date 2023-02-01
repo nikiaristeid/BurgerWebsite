@@ -1,22 +1,10 @@
 import * as React from "react";
 import { db } from "../../firebase";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  setDoc,
-  doc,
-  getDoc,
-  updateDoc,
-  deleteField,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { query, where } from "firebase/firestore";
 import "./css/Account.css";
-
 import { useState, useEffect } from "react";
-
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
-
 import Badge from "@mui/material/Badge";
 
 export default function DisplayOrderHistory({
@@ -26,9 +14,18 @@ export default function DisplayOrderHistory({
   setOrdersQuantity,
 }) {
   const [orderHistory, setOrderHistory] = useState([]);
+
   useEffect(() => {
-    displayOrdersFirebase();
-  }, [userId]);
+    (async () => {
+      if (orderHistoryActive == "active") {
+        await displayOrdersFirebase();
+      }
+    })();
+  }, [orderHistoryActive]);
+
+  useEffect(() => {
+    console.log(orderHistory);
+  }, [orderHistory]);
 
   async function displayOrdersFirebase() {
     console.log("gg");
@@ -51,9 +48,8 @@ export default function DisplayOrderHistory({
       //let newData = { ...doc.data(), formattedDate: formattedDate };
       order.push(doc.data());
     });
-
     console.log(order);
-    setOrdersQuantity(order.length());
+    setOrdersQuantity(order.length);
     setOrderHistory(order);
   }
 

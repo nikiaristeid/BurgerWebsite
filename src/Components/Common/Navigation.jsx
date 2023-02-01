@@ -19,21 +19,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-function ResponsiveAppBar({ logIn, firstLetter, setLogIn }) {
+function ResponsiveAppBar({ logIn, firstLetter, setLogIn, quantity }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [products, setProducts] = useState([]);
-  const [quantity, setQuantity] = useState(0);
 
   const navigate = useNavigate();
-  let savedCart = JSON.parse(localStorage.getItem("cart"));
-  useEffect(() => {
-    if (savedCart) {
-      //console.log(savedCart);
-      setProducts(savedCart);
-      setQuantity(savedCart.length);
-    }
-  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

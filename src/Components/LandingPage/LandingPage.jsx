@@ -41,6 +41,8 @@ const LandingPage = () => {
       } else {
         // User is signed out
         // ...
+        localStorage.clear();
+        setQuantity(0);
       }
     });
   }, []);
