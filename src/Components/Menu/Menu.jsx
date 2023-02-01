@@ -16,8 +16,8 @@ const Menu = () => {
   const [idaddedToCart, setidAddedToCart] = useState("");
   const [firstLetter, SetFirstLetter] = useState("");
   const [email, setEmail] = useState("");
-  const [quantity, setQuantity] = useState(0);
   const [logIn, setLogIn] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
   let savedCart = JSON.parse(localStorage.getItem("cart"));
 
