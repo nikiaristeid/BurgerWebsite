@@ -68,7 +68,9 @@ export default function DisplayOrderHistory({
                     <li className="list-group-item d-flex  align-items-center justify-content-between">
                       <div className=" d-flex flex-start align-items-center">
                         <div>
-                          <h6 className="my-0">Order number 64925</h6>
+                          <h6 className="my-0">
+                            Order number {order.orderNumber}
+                          </h6>
                           <small className="text-muted"></small>
                         </div>
                       </div>

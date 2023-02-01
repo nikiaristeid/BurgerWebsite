@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState } from "react";
 import "./css/Cart.css";
 import {
   BsCheckCircleFill,
@@ -8,6 +7,9 @@ import {
 } from "react-icons/bs";
 import { VscCircleFilled } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase";
+import { doc, updateDoc } from "firebase/firestore";
+import { useState, useEffect } from "react";
 export default function WhenSubmit({
   userId,
   date,
@@ -20,22 +22,27 @@ export default function WhenSubmit({
   deliveryCost,
   code,
   discount,
+  orderNumber,
+  orderId,
 }) {
-  const [orderNo, setOrderNo] = useState("");
   let navigate = useNavigate();
-  function getOrderNumber() {
-    let orderNumber = userId.slice(0, 5).toUpperCase();
-
-    for (let i = 0; i < 5; i++) {
-      let randomNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-      orderNumber += randomNumber;
-    }
-    setOrderNo(orderNumber);
-    console.log(orderNumber);
-  }
 
   function GoToLandingPage() {
     navigate("/");
+  }
+  useEffect(() => {
+    setOrderNumber();
+  }, [orderNumber]);
+  async function setOrderNumber() {
+    console.log("setNumber");
+
+    try {
+      await updateDoc(doc(db, "orders", orderId), {
+        orderNumber: orderNumber,
+      });
+    } catch (e) {
+      console.error("Error adding document: ");
+    }
   }
 
   return (
@@ -44,7 +51,7 @@ export default function WhenSubmit({
         <div class="py-5 text-center d-flex flex-column align-items-center">
           <BsCheckCircleFill color="green" fontSize={80} class="mb-3" />
           <h3 class="lead">Your order was completed successfully</h3>
-          <h4 class="mb-1">ORDER NO: {orderNo}</h4>
+          <h4 class="mb-1">ORDER NO: {orderNumber}</h4>
           <p class="text-secondary">{date}</p>
         </div>
 
