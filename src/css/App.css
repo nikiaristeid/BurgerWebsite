@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+input {
+  padding: 10px 3px;
+  width: 100%;
+}
+
+.btn {
+  padding: 10px 1rem;
+  background: #334;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button-no-background {
+  background-color: none;
+  border: none;
+  background: none;
+}
+
+.button-no-background:hover {
+  color: gray;
+}

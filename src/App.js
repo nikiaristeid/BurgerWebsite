@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/App.css";
+import BurgersForm from "./BurgersForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./LoginPage";
+import RestaurantFormPage from "./RestaurantFormPage";
+import SignUpRestaurant from "./SignUpRestaurant";
+import Menu from "./Components/Menu/Menu";
+import Account from "./Components/Account/Account";
+
+import SignUpUser from "./SignUpUser";
+import SignInUser from "./SignInUser";
+import LandingPage from "./Components/LandingPage/LandingPage";
+import Cart from "./Components/Cart/Cart";
+import SignUp from "./SignUp";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<LandingPage />}></Route>
+          <Route exact path="/login" element={<LoginPage />}></Route>
+          <Route
+            exact
+            path="/restaurantowner"
+            element={<BurgersForm />}
+          ></Route>
+
+          <Route exact path="/signinuser" element={<SignInUser />}></Route>
+
+          <Route
+            exact
+            path="/restaurantformpage"
+            element={<RestaurantFormPage />}
+          ></Route>
+
+          <Route
+            exact
+            path="/signuprestaurant"
+            element={<SignUpRestaurant />}
+          ></Route>
+
+          <Route exact path="/signup" element={<SignUp />}></Route>
+
+          <Route exact path="/menu" element={<Menu />}></Route>
+          <Route exact path="/account" element={<Account />}></Route>
+          <Route exact path="/signupuser" element={<SignUpUser />}></Route>
+          <Route exact path="/cart" element={<Cart />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

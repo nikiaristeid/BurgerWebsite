@@ -1,0 +1,63 @@
+.container {
+  max-width: 960px;
+}
+
+.btn-form:hover {
+  background-color: #ff9800;
+  border: 1px solid #ff9800;
+  color: white;
+}
+
+/* SignInToContinue.jsx*/
+.signin-btn:hover {
+  color: #0057d3;
+}
+
+.signin-btn {
+  color: #007bff;
+}
+
+.signup-btn:hover {
+  color: #ff9800;
+}
+
+.signup-btn {
+  color: #ff6d00;
+}
+
+/* BillingForm.jsx*/
+
+.shipping:hover {
+  background-color: aliceblue;
+}
+
+.selected {
+  background-color: aliceblue;
+}
+
+.shippingClass {
+  background-color: #4caf4f4d;
+  font-weight: 500;
+}
+
+.form-check-input:checked {
+  background-color: #ff9800;
+  border: 1px solid #ff9800;
+}
+
+.invalid {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* EmptyCart.jsx*/
+.imageEmptyCart {
+  width: 30%;
+}
+
+.btn-arrow {
+  border-radius: 50px;
+  border: none;
+  color: white;
+  background-color: #ff9800;
+}

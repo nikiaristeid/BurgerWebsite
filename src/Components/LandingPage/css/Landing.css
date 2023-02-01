@@ -1,0 +1,127 @@
+.main {
+  background-color: #fdf2e9;
+}
+
+.header {
+  padding-left: 0;
+}
+
+.header-image {
+  width: 100%;
+}
+
+.image {
+  padding-left: 0;
+}
+
+.header-title {
+  line-height: 1.05;
+  width: 90%;
+  font-size: 4rem;
+}
+
+.header-description {
+  font-weight: 400;
+  width: 80%;
+}
+
+.button-landing {
+  background-color: #ff6d00;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.button-landing:hover,
+.button-landing:focus,
+.button-landing:active {
+  background-color: inherit;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: #ff6d00;
+  box-shadow: inset 0 0 0 3px #ff6d00;
+}
+.steps {
+  width: 250px;
+}
+.icon {
+  font-size: 20px;
+}
+
+.secondary {
+  font-weight: lighter;
+}
+
+/*Responsive*/
+
+@media (max-width: 1400px) {
+  .header-description {
+    font-size: 1rem;
+  }
+  .header-title {
+    font-size: 3.4rem;
+  }
+}
+
+@media (max-width: 1293px) {
+  .my-container {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 1260px) {
+  .my-container {
+    padding-right: 0;
+  }
+  .header {
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-right: 0;
+  }
+  .header-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1043px) {
+  .header-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 841px) {
+  .header-title {
+    font-size: 2.7rem;
+  }
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 3rem;
+  }
+
+  .header {
+    align-self: center;
+    text-align: center;
+  }
+
+  .reviews {
+    align-self: center;
+  }
+  .steps {
+    align-self: center;
+    width: 100%;
+  }
+  .button-landing {
+    align-self: center;
+  }
+
+  .header-title {
+    align-self: center;
+  }
+  .header-description {
+    align-self: center;
+    font-size: 1.2rem;
+  }
+}
