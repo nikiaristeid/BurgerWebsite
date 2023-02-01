@@ -25,7 +25,7 @@ const BillingForm = ({
   return (
     <div className="col-md-7 col-lg-8">
       <h4 className="mb-3">Billing address</h4>
-      <form onSubmit={handleSubmit} className="needs-validation">
+      <form className="needs-validation">
         <div className="row g-3">
           <div className="col-sm-6">
             <label for="firstName" className="form-label">
@@ -260,13 +260,13 @@ const BillingForm = ({
         </div>
 
         <hr className="my-4" />
-        <div className={`${errors.fname && "is-invalid"}`}>
+        <div>
           <h4 className="mb-3">Shipping</h4>
 
-          <ul className={`list-group mb-3 ${errors.fname && "is-invalid"}`}>
+          <ul className={`list-group mb-3 ${errors.delivery && "is-invalid"}`}>
             <li
               className={`list-group-item d-flex justify-content-between lh-sm shipping ${deliveryClass}  ${
-                errors.fname && "invalid"
+                errors.delivery && "invalid"
               }`}
               onClick={chooseDelivery}
             >
@@ -410,6 +410,7 @@ const BillingForm = ({
         <button
           className="w-100 btn btn-primary btn-lg mb-5 btn-form"
           type="submit"
+          onClick={handleSubmit}
         >
           Continue to checkout
         </button>

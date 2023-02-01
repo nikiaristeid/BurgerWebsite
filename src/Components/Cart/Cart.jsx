@@ -121,8 +121,8 @@ export default function Cart() {
 
   const formik = useFormik({
     initialValues: {
-      fname: "Niki",
-      lname: "Aristei",
+      fname: "",
+      lname: "",
       address: "duhvlw",
       address2: "",
       country: "Greece",
@@ -138,6 +138,8 @@ export default function Cart() {
       delivery: "",
     },
     validationSchema: SignupSchema,
+    validateOnBlur: false,
+    validateOnChange: false,
 
     onSubmit: (values) => {
       if (delivery) {

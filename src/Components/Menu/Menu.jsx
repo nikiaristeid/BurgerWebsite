@@ -66,7 +66,7 @@ const Menu = () => {
       const data = doc.data();
       newBurger.push({ ...data, count: 1, disabled: true, howmany: 0 });
       setBurgers(newBurger);
-      console.log(newBurger);
+      //console.log(newBurger);
     });
   }
 
@@ -88,10 +88,10 @@ const Menu = () => {
     }
     setQuantity(product.count + quantity);
     newBurgers[index].count = 1;
-    console.log(product.key);
-    console.log(product);
+    // console.log(product.key);
+    // console.log(product);
     console.log(copyCart);
-    console.log(quantity);
+    //console.log(quantity);
     setCart(copyCart);
 
     localStorage.setItem("cart", JSON.stringify(copyCart));

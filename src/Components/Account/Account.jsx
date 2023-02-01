@@ -43,7 +43,7 @@ export default function Account() {
   const [ordersQuantity, setOrdersQuantity] = useState(0);
 
   const [couponsActive, setCouponsActive] = useState("");
-  const theme = useTheme();
+
   const [logIn, setLogIn] = useState(false);
   const color = orange[500];
   useEffect(() => {
@@ -80,12 +80,6 @@ export default function Account() {
   useEffect(() => {
     getUserInformation();
   }, [userId]);
-
-  const Div = styled("div")(({ theme }) => ({
-    ...theme.typography.button,
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
-  }));
 
   function displayAddress() {
     setAddressActive("active");

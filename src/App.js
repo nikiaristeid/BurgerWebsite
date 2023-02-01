@@ -1,17 +1,16 @@
 import "./css/App.css";
-import BurgersForm from "./BurgersForm";
+import BurgersForm from "./Components/Restaurant-Panel/BurgersForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LoginPage from "./LoginPage";
-import RestaurantFormPage from "./RestaurantFormPage";
-import SignUpRestaurant from "./SignUpRestaurant";
+import LoginPage from "./Components/Restaurant-Panel/LoginPage";
+import RestaurantFormPage from "./Components/Restaurant-Panel/RestaurantFormPage";
+import SignUpRestaurant from "./Components/Restaurant-Panel/SignUpRestaurant";
 import Menu from "./Components/Menu/Menu";
 import Account from "./Components/Account/Account";
-
 import SignUpUser from "./SignUpUser";
 import SignInUser from "./SignInUser";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Cart from "./Components/Cart/Cart";
-import SignUp from "./SignUp";
+import SignUp from "./Components/Restaurant-Panel/SignUp";
 
 function App() {
   return (

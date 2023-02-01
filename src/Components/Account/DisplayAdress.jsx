@@ -1,18 +1,7 @@
 import * as React from "react";
 import { db } from "../../firebase";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  setDoc,
-  doc,
-  getDoc,
-  updateDoc,
-  deleteField,
-} from "firebase/firestore";
-
+import { doc, updateDoc, deleteField } from "firebase/firestore";
 import "./css/Account.css";
-
 import { BsFillHouseFill } from "react-icons/bs";
 
 export default function DisplayAddress({
@@ -53,16 +42,10 @@ export default function DisplayAddress({
                       <p className="mb-0">{userInformation.zip}</p>
                     </div>
                   </div>
-                  <div className="d-flex gap-2 flex-column jusify-content-center  align-items-center">
+                  <div className="  jusify-content-center  align-items-center">
                     <button
                       type="button"
-                      className="btn text-success button-no-background"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      type="button"
-                      className="btn text-danger button-no-background"
+                      className="btn text-danger button-no-background delete-btn"
                       onClick={deleteAddress}
                     >
                       Delete

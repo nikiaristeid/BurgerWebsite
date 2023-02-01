@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import List from "@mui/joy/List";
-import ListItem from "@mui/joy/ListItem";
-import ListItemDecorator from "@mui/joy/ListItemDecorator";
-import Person from "@mui/icons-material/Person";
-import People from "@mui/icons-material/People";
-import Apartment from "@mui/icons-material/Apartment";
-import StorefrontIcon from "@mui/icons-material/Storefront";
-import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import "./css/App.css";
+
 import StoreIcon from "@mui/icons-material/Store";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
-import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
-import { width } from "@mui/system";
+
 export default function RadioPositionEnd() {
   const [userClick, setUserClick] = useState(false);
   const [restaurantClick, setRestaurantClick] = useState(false);

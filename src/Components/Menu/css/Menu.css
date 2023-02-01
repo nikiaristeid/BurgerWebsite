@@ -43,6 +43,16 @@
   border: 1px solid #ff9800;
 }
 /*Responsive */
+
+@media only screen and (max-width: 855px) {
+  .btn-g {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+  }
+}
 @media only screen and (max-width: 575px) {
   .burger-img {
     width: 60%;

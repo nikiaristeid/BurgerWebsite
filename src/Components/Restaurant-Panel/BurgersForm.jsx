@@ -1,7 +1,6 @@
-import "./css/App.css";
 import React, { useState, useEffect } from "react";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../../firebase";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
