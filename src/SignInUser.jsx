@@ -65,11 +65,11 @@ const SignInUser = () => {
     },
   });
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(formik);
-  }, [formik]);
+  }, [formik]);*/
 
-  const onSuccess = (response) => {
+  /*const onSuccess = (response) => {
     console.log("google login");
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
@@ -113,7 +113,8 @@ const SignInUser = () => {
         console.log(obj);
       })
       .catch((err) => err.message);
-  };
+  };*/
+
   return (
     <div
       style={{ height: "100vh" }}
@@ -139,11 +140,9 @@ const SignInUser = () => {
             <Typography level="h4" component="h1">
               Welcome!
             </Typography>
-            <button onClick={signInWithGoogle}>fefef</button>
             <Typography level="body2">Sign in to continue</Typography>
           </div>
           <TextField
-            // html input attribute
             name="email"
             type="email"
             placeholder="johndoe@email.com"
@@ -189,13 +188,13 @@ const SignInUser = () => {
             }}
           />
 
-          <GoogleLogin
+          {/*<GoogleLogin
             clientId="157055178272-cb4g3uovvpftbpt2skarrt7voogtjnlh.apps.googleusercontent.com"
             buttonText="Login with Google"
             onSuccess={onSuccess}
             onFailure={onFailure}
-            sx={{ mt: 1 /* margin top */ }}
-          />
+            sx={{ mt: 1 }}
+          />*/}
 
           <Button sx={{ mt: 1 /* margin top */ }} onClick={formik.handleSubmit}>
             Log in

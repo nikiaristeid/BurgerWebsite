@@ -34,18 +34,8 @@ export default function DisplayOrderHistory({
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data());
 
-      //let date = new Date(
-      //doc.data().date.seconds * 1000 + doc.data().date.nanoseconds / 1000000
-      //);
-      //let formattedDate = date.toLocaleDateString("gr-GR", {
-      // month: "2-digit",
-      // day: "2-digit",
-      // year: "numeric",
-      //});
-      //let newData = { ...doc.data(), formattedDate: formattedDate };
       order.push(doc.data());
     });
     console.log(order);

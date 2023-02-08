@@ -21,10 +21,6 @@ export default function DisplayProfile({
               <MarkunreadIcon style={{ color: color }} />
               <p className="card-text">{email}</p>
             </div>
-            <div className="d-flex align-items-center gap-2 ">
-              <CallIcon style={{ color: color }} />
-              <p className="card-text">(+30)6978111245</p>
-            </div>
           </div>
         </div>
       )}

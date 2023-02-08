@@ -164,13 +164,13 @@ const SignUpUser = () => {
             helperText={formik.errors.password ? formik.errors.password : ""}
           />
 
-          <GoogleLogin
+          {/*<GoogleLogin
             clientId="157055178272-cb4g3uovvpftbpt2skarrt7voogtjnlh.apps.googleusercontent.com"
             buttonText="Sign up with Google"
             onSuccess={onSuccess}
             onFailure={onFailure}
-            sx={{ mt: 1 /* margin top */ }}
-          />
+            sx={{ mt: 1  }}
+          />*/}
           <Button sx={{ mt: 1 /* margin top */ }} onClick={formik.handleSubmit}>
             Sign up
           </Button>
