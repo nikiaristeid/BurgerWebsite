@@ -18,7 +18,7 @@ const SignInToContinue = ({}) => {
         <div className="d-flex flex-row align-items-center gap-1 justify-content-center mt-3">
           <button
             type="button"
-            class="  button-no-background  signin-btn"
+            className="  button-no-background  signin-btn"
             onClick={GoToSignIn}
           >
             Sign in
@@ -27,7 +27,7 @@ const SignInToContinue = ({}) => {
           <p className="mb-0">or</p>
           <button
             type="button"
-            class=" signup-btn button-no-background "
+            className=" signup-btn button-no-background "
             onClick={GoToSignUp}
           >
             Sign Up

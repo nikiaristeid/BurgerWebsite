@@ -11,14 +11,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+
 function ResponsiveAppBar({ logIn, firstLetter, setLogIn, quantity }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

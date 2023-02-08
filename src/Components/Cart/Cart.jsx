@@ -89,8 +89,7 @@ export default function Cart() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLogIn(true);
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
+        // User is signed in
         const uid = user.uid;
         console.log(user.email);
         setEmail(user.email);
@@ -98,7 +97,6 @@ export default function Cart() {
         SetFirstLetter(user.email.charAt(0).toUpperCase());
       } else {
         // User is signed out
-        // ...
       }
     });
   }, []);
@@ -160,7 +158,6 @@ export default function Cart() {
       setSubmit(true);
       localStorage.clear();
       setQuantity(0);
-      //alert(JSON.stringify(values, null, 2));
     },
   });
 

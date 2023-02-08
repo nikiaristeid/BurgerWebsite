@@ -24,23 +24,18 @@ function App() {
             path="/restaurantowner"
             element={<BurgersForm />}
           ></Route>
-
           <Route exact path="/signinuser" element={<SignInUser />}></Route>
-
           <Route
             exact
             path="/restaurantformpage"
             element={<RestaurantFormPage />}
           ></Route>
-
           <Route
             exact
             path="/signuprestaurant"
             element={<SignUpRestaurant />}
           ></Route>
-
           <Route exact path="/signup" element={<SignUp />}></Route>
-
           <Route exact path="/menu" element={<Menu />}></Route>
           <Route exact path="/account" element={<Account />}></Route>
           <Route exact path="/signupuser" element={<SignUpUser />}></Route>
