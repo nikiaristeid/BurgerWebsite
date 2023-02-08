@@ -34,7 +34,7 @@
 .button-landing:hover,
 .button-landing:focus,
 .button-landing:active {
-  background-color: inherit;
+  background-color: #fdf2e9;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   color: #ff6d00;
   box-shadow: inset 0 0 0 3px #ff6d00;
