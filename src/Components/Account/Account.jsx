@@ -1,30 +1,13 @@
 import * as React from "react";
 import { db } from "../../firebase";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  setDoc,
-  doc,
-  getDoc,
-  updateDoc,
-  deleteField,
-} from "firebase/firestore";
-import { query, where } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import "./css/Account.css";
 import Navigation from "../Common/Navigation";
-import { styled } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
-import { useTheme } from "@mui/material/styles";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 import CardHeader from "@mui/material/CardHeader";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import MarkunreadIcon from "@mui/icons-material/Markunread";
-import CallIcon from "@mui/icons-material/Call";
-import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import { orange } from "@mui/material/colors";
-import Badge from "@mui/material/Badge";
 import DisplayAddress from "./DisplayAdress";
 import DisplayCoupons from "./DisplayCoupons";
 import DisplayProfile from "./DisplayProfile";
@@ -41,18 +24,16 @@ export default function Account() {
   const [addressActive, setAddressActive] = useState("");
   const [userId, setUserId] = useState("");
   const [ordersQuantity, setOrdersQuantity] = useState(0);
-
   const [couponsActive, setCouponsActive] = useState("");
-  const theme = useTheme();
   const [logIn, setLogIn] = useState(false);
   const color = orange[500];
+
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLogIn(true);
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
+        // User is signed in
         const uid = user.uid;
         console.log(user.email);
         setEmail(user.email);
@@ -60,7 +41,6 @@ export default function Account() {
         setUserId(uid);
       } else {
         // User is signed out
-        // ...
       }
     });
   }, []);
@@ -80,12 +60,6 @@ export default function Account() {
   useEffect(() => {
     getUserInformation();
   }, [userId]);
-
-  const Div = styled("div")(({ theme }) => ({
-    ...theme.typography.button,
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
-  }));
 
   function displayAddress() {
     setAddressActive("active");
@@ -122,7 +96,6 @@ export default function Account() {
       console.log("Document data:", docSnap.data());
       setUserInformation(docSnap.data());
     } else {
-      // doc.data() will be undefined in this case
       console.log("No such document!");
     }
   }

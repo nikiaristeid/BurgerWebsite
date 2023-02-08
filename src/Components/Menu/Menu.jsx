@@ -16,8 +16,8 @@ const Menu = () => {
   const [idaddedToCart, setidAddedToCart] = useState("");
   const [firstLetter, SetFirstLetter] = useState("");
   const [email, setEmail] = useState("");
-  const [logIn, setLogIn] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  const [logIn, setLogIn] = useState(false);
 
   let savedCart = JSON.parse(localStorage.getItem("cart"));
 
@@ -66,7 +66,6 @@ const Menu = () => {
       const data = doc.data();
       newBurger.push({ ...data, count: 1, disabled: true, howmany: 0 });
       setBurgers(newBurger);
-      console.log(newBurger);
     });
   }
 
@@ -78,7 +77,6 @@ const Menu = () => {
     setidAddedToCart(product.key);
     for (let i = 0; i < cart.length; i++) {
       if (product.key === cart[i].key) {
-        // yparxi idi o kodikos sto kalathi
         cart[i].howmany += product.count;
         productFound = true;
       }
@@ -88,10 +86,7 @@ const Menu = () => {
     }
     setQuantity(product.count + quantity);
     newBurgers[index].count = 1;
-    console.log(product.key);
-    console.log(product);
     console.log(copyCart);
-    console.log(quantity);
     setCart(copyCart);
 
     localStorage.setItem("cart", JSON.stringify(copyCart));

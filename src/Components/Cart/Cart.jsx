@@ -5,7 +5,14 @@ import "./css/Cart.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { db } from "../../firebase";
-import { collection, addDoc, setDoc, doc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import Navigation from "../Common/Navigation";
 import WhenSubmit from "./WhenSumbit";
 import EmptyCart from "./EmptyCart";
@@ -33,13 +40,15 @@ export default function Cart() {
   const [date, setDate] = useState("");
   const [deliveryClass, setDeliveryClass] = useState("");
   const [takeawayClass, setTakeawayClass] = useState("");
-  const [orderNo, setOrdeNo] = useState("");
   const [logIn, setLogIn] = useState(false);
   const [deleteP, setDeleteP] = useState(false);
   const [sameShipping, setSameShipping] = useState(true);
   const [code, setCode] = useState([]);
   const [codeActive, setCodeActive] = useState(false);
   const [codeDontExist, setCodeDontExist] = useState(false);
+  const [orderNumber, setOrderNumber] = useState(0);
+  const [orderId, setOrderId] = useState("");
+
   const formikCode = useFormik({
     initialValues: {
       code: "",
@@ -80,8 +89,7 @@ export default function Cart() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLogIn(true);
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
+        // User is signed in
         const uid = user.uid;
         console.log(user.email);
         setEmail(user.email);
@@ -89,7 +97,6 @@ export default function Cart() {
         SetFirstLetter(user.email.charAt(0).toUpperCase());
       } else {
         // User is signed out
-        // ...
       }
     });
   }, []);
@@ -121,12 +128,12 @@ export default function Cart() {
 
   const formik = useFormik({
     initialValues: {
-      fname: "Niki",
-      lname: "Aristei",
-      address: "duhvlw",
+      fname: "",
+      lname: "",
+      address: "",
       address2: "",
-      country: "Greece",
-      zip: "11143",
+      country: "",
+      zip: "",
       shippingOption: "",
       fnameShipping: "",
       lnameShipping: "",
@@ -138,6 +145,8 @@ export default function Cart() {
       delivery: "",
     },
     validationSchema: SignupSchema,
+    validateOnBlur: false,
+    validateOnChange: false,
 
     onSubmit: (values) => {
       if (delivery) {
@@ -145,10 +154,10 @@ export default function Cart() {
       }
       addInformationToFirebase(values);
       addOrdersToFirebase(values);
+      getOrderNumber();
       setSubmit(true);
       localStorage.clear();
       setQuantity(0);
-      alert(JSON.stringify(values, null, 2));
     },
   });
 
@@ -222,8 +231,10 @@ export default function Cart() {
   }
   async function addOrdersToFirebase(values) {
     console.log("addOrders");
+
     try {
       const docRef = await addDoc(collection(db, "orders"), {
+        orderNumber: 0,
         total: total,
         products: products,
         delivery: delivery,
@@ -234,9 +245,34 @@ export default function Cart() {
         quantity: quantity,
       });
       //console.log("Document written with ID: ", docRef.id);
+
+      console.log(docRef.id);
+      setOrderId(docRef.id);
+
       //console.log(submit);
     } catch (e) {
       console.error("Error adding document: ", e);
+    }
+  }
+
+  async function getOrderNumber() {
+    console.log("getNumber");
+    let counter;
+    try {
+      const q = query(collection(db, "counter"));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        counter = doc.data().counter;
+        console.log(counter);
+        counter++;
+      });
+      setOrderNumber(counter);
+
+      await updateDoc(doc(db, "counter", "value"), {
+        counter: counter,
+      });
+    } catch (e) {
+      console.error("Error adding document: ");
     }
   }
 
@@ -365,6 +401,8 @@ export default function Cart() {
               code={code}
               deliveryCost={deliveryCost}
               discount={discount}
+              orderNumber={orderNumber}
+              orderId={orderId}
             />
           ) : (
             <EmptyCart />

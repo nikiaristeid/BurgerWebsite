@@ -46,8 +46,8 @@
 }
 
 .invalid {
-  background-color: #f8d7da;
   color: #721c24;
+  border: 1px solid #b02a37;
 }
 
 /* EmptyCart.jsx*/

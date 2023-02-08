@@ -1,7 +1,6 @@
 import React from "react";
 import "./css/Menu.css";
 import Alert from "@mui/material/Alert";
-import ButtonSecondary from "../Common/ButtonSecondary";
 const Burger = ({
   burger,
   index,
@@ -40,7 +39,7 @@ const Burger = ({
           </p>
           <p className="card-text">{burger.description}</p>
 
-          <div className="d-flex align-items-center justify-content-start gap-3">
+          <div className="d-flex align-items-center justify-content-start gap-3 btn-g">
             <button
               type="button"
               className="btn btn-sm btn-outline-secondary btn-add"

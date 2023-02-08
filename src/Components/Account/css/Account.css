@@ -8,3 +8,11 @@
 .burger-icon {
   color: black;
 }
+
+delete-btn {
+  padding: 0;
+}
+
+delete-btn:hover {
+  color: black !important;
+}

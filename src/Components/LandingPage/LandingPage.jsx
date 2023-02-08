@@ -32,15 +32,15 @@ const LandingPage = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLogIn(true);
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
+        // User is signed in
         const uid = user.uid;
         console.log(user.email);
         setEmail(user.email);
         SetFirstLetter(user.email.charAt(0).toUpperCase());
       } else {
         // User is signed out
-        // ...
+        localStorage.clear();
+        setQuantity(0);
       }
     });
   }, []);
@@ -65,13 +65,13 @@ const LandingPage = () => {
         setLogIn={setLogIn}
       />
       <main className="main " style={{ height: "91vh" }}>
-        <div class="container-xl my-container" style={{ height: "100%" }}>
+        <div className="container-xl my-container" style={{ height: "100%" }}>
           <div
-            class=" d-flex flex-row my-container2 align-items-center justify-content-center"
+            className=" d-flex flex-row my-container2 align-items-center justify-content-center"
             style={{ height: "100%" }}
           >
-            <div class=" col-lg-6 col-md-7 col-sm-12  header d-flex flex-column gap-5 ">
-              <div class=" flex-column align-items-start d-flex   gap-3  ">
+            <div className=" col-lg-6 col-md-7 col-sm-12  header d-flex flex-column gap-5 ">
+              <div className=" flex-column align-items-start d-flex   gap-3  ">
                 <h1 className="header-title  ">
                   The most delicious burgers at your door
                 </h1>
@@ -82,7 +82,7 @@ const LandingPage = () => {
                 </h5>
                 <button
                   type="button"
-                  class="btn button-landing d-flex flex-row align-items-center justify-content-center gap-2"
+                  className="btn button-landing d-flex flex-row align-items-center justify-content-center gap-2"
                   onClick={navigateToPageMenu}
                 >
                   <p className="mb-0">Our Menu </p>
@@ -107,7 +107,7 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            <div class=" col-lg-6 col-md-5 hidden-sm image  ">
+            <div className=" col-lg-6 col-md-5 hidden-sm image  ">
               <img
                 src="https://goodys.azureedge.net/images/882x648/files/burgers/3006_Shadow_Extreme_Golden.png"
                 alt=""
