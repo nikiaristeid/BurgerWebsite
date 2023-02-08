@@ -6,8 +6,8 @@ import RestaurantFormPage from "./Components/Restaurant-Panel/RestaurantFormPage
 import SignUpRestaurant from "./Components/Restaurant-Panel/SignUpRestaurant";
 import Menu from "./Components/Menu/Menu";
 import Account from "./Components/Account/Account";
-import SignUpUser from "./SignUpUser";
-import SignInUser from "./SignInUser";
+import SignUpUser from "./LoginPages/SignUpUser";
+import SignInUser from "./LoginPages/SignInUser";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Cart from "./Components/Cart/Cart";
 import SignUp from "./Components/Restaurant-Panel/SignUp";
