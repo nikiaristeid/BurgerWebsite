@@ -31,8 +31,11 @@ export default function WhenSubmit({
     navigate("/");
   }
   useEffect(() => {
+    console.log(orderNumber);
+    console.log(orderId);
     setOrderNumber();
-  }, [orderNumber]);
+  }, [orderId]);
+
   async function setOrderNumber() {
     console.log("setNumber");
 
