@@ -43,7 +43,7 @@ const SignUpUser = () => {
           const user = userCredential.user;
           console.log("success");
           addAlertSuccess();
-          navigate("/congrats");
+          navigate("/signinuser");
 
           // ...
         })
@@ -58,7 +58,7 @@ const SignUpUser = () => {
           }
         });
 
-      alert(JSON.stringify(values, null, 2));
+      //alert(JSON.stringify(values, null, 2));
     },
   });
 
